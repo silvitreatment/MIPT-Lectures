@@ -5,14 +5,14 @@ const val INF = Int.MAX_VALUE
 fun dijkstra(n : Int, graph : List<MutableList<Pair<Int, Int>>>, start : Int) : IntArray {
     val dist = IntArray(n) { INF }
     dist[start] = 0
-    val pq = PriorityQueue<Pair<Int, Int>>(compareBy {it.first })
+    val pq = PriorityQueue<Pair<Int, Int>>(compareBy {it.first }) // очередь как min heap, где голова очередти - минимальное значение dist
     pq.add(0 to start)
 
     while (pq.isNotEmpty()) {
         val (curDist, u) = pq.poll()
-        if (curDist > dist[u]) continue
+        if (curDist > dist[u]) continue // у нас есть лучший путь к u, чем curDist
 
-        for ((v, weight) in graph[u]) {
+        for ((v, weight) in graph[u]) { // рассматриваем всех соседей u 
             val newDist = dist[u] + weight
             if (newDist < dist[v]) {
                 dist[v] = newDist
