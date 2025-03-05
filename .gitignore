@@ -4,6 +4,8 @@
 !*.cpp
 !*.c
 
+*
+
 !.gitignore
 *.o
 *.obj
