@@ -5,3 +5,13 @@
 !*.c
 
 !.gitignore
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+build/
+bin/
+cmake-build-debug/
+out/
